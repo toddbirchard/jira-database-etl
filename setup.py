@@ -22,7 +22,7 @@ VERSION = None
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    'requests', 'pandas', 'sqlalchemy', 'psycopg2', 'psycopg2-binary'
+    'requests', 'pandas', 'sqlalchemy', 'psycopg2', 'psycopg2-binary', 'flask'
 ]
 
 # What packages are optional?
