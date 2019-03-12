@@ -12,4 +12,4 @@
 [![GitHub Stars](https://img.shields.io/github/stars/toddbirchard/serverless-jira-import.svg?style=flat-square&colorB=e3bb18&colorA=36363e)](https://github.com/toddbirchard/serverless-jira-import/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/toddbirchard/serverless-jira-import.svg?style=flat-square&colorA=36363e)](https://github.com/toddbirchard/serverless-jira-import/network)
 
-![Serverless JIRA](assets/jira-serverless-import.png)
+![Serverless JIRA](https://github.com/toddbirchard/serverless-jira-import/blob/master/assets/jira-serverless-import.jpg)
