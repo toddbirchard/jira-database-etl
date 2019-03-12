@@ -1,13 +1,13 @@
-from flask import Flask, make_response
 from fetch import fetch_public_jira_issues
-from data import create_issues_dataframe
+from data import JiraDataframeConstructor
+from db import upload_dataframe
 
 
 def main():
     """Application Entry Point."""
     issues_json = fetch_public_jira_issues()
-    issues_table = create_issues_dataframe(issues_json)
-    pass
+    jira_df = JiraDataframeConstructor.add_issues_to_dataframe(issues_json)
+    upload_dataframe(jira_df)
 
 
 main()

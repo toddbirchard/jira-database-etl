@@ -8,9 +8,9 @@ python-dotenv="*"
 
 [packages]
 requests="*"
-flask="*"
-flask-sqlalchemy="*"
-pprint="*"
+sqlalchemy="*"
+psycopg2="*"
+psycopg2-binary="*"
 pandas="*"
 
 
