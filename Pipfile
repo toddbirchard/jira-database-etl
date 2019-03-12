@@ -14,6 +14,5 @@ psycopg2-binary="*"
 pandas="*"
 flask="*"
 
-
 [requires]
 python_version = "3.7"

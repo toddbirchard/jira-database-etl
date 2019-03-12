@@ -7,7 +7,9 @@ def fetch_public_jira_issues():
 
     1. Retrieve all values from env vars.
     2. Construct request against JIRA REST API.
-    3. """
+    3. Fetch paginated issues via recursion.
+    4. Pass final JSON to be transformed into a DataFrame.
+     """
     results_per_page = 100
     username = os.environ.get('JIRA_USERNAME')
     password = os.environ.get('JIRA_PASSWORD')
@@ -53,6 +55,7 @@ def fetch_public_jira_issues():
         issues_so_far = len(arr) + results_per_page
         print(issues_so_far, ' out of', total_results)
         arr.extend(issues)
+        # Check if additional pages of results exist.
         if issues_so_far < total_results:
             fetch_page_of_results()
         return arr

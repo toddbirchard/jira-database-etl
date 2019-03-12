@@ -1,3 +1,5 @@
 .env
-data
+jiratestNEW.csv
 models.py
+__pycache__
+.idea
