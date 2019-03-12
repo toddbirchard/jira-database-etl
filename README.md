@@ -9,5 +9,7 @@
 ![Google Cloud Functions](https://img.shields.io/badge/Google--Cloud--Functions-v93-blue.svg?longCache=true&logo=google&longCache=true&style=flat-square&logoColor=white&colorB=23a8e2&colorA=36363e)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square&colorA=36363e)
 [![GitHub Issues](https://img.shields.io/github/issues/toddbirchard/serverless-jira-import.svg?style=flat-square&colorA=36363e)](https://github.com/toddbirchard/serverless-jira-import/issues)
-[![GitHub Stars](https://img.shields.io/github/stars/toddbirchardserverless-jira-import.svg?style=flat-square&colorB=e3bb18&colorA=36363e)](https://github.com/toddbirchard/serverless-jira-import/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/toddbirchard/serverless-jira-import.svg?style=flat-square&colorB=e3bb18&colorA=36363e)](https://github.com/toddbirchard/serverless-jira-import/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/toddbirchard/serverless-jira-import.svg?style=flat-square&colorA=36363e)](https://github.com/toddbirchard/serverless-jira-import/network)
+
+![Serverless JIRA](assets/jira-serverless-import.png)
