@@ -50,11 +50,10 @@ def fetch_public_jira_issues():
                            )
         response = req.json()
         issues = response['issues']
-        print('number of issues = ', len(issues))
-        print('current place = ', len(arr) + results_per_page)
-        print('total = ', total_results)
+        issues_so_far = len(arr) + results_per_page
+        print(issues_so_far, ' out of', total_results)
         arr.extend(issues)
-        if (len(arr) + results_per_page) < total_results:
+        if issues_so_far < total_results:
             fetch_page_of_results()
         return arr
 
