@@ -8,6 +8,3 @@ def main():
     issues_json = fetch_public_jira_issues()
     jira_df = JiraDataframeConstructor.add_issues_to_dataframe(issues_json)
     upload_dataframe(jira_df)
-
-
-main()
