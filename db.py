@@ -1,5 +1,9 @@
 import os
 from sqlalchemy import create_engine
+import logging
+
+logging.basicConfig()
+logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
 
 def upload_dataframe(jira_df):
@@ -7,5 +11,5 @@ def upload_dataframe(jira_df):
     print('test')
     URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     print('URI = ', URI)
-    engine = create_engine(URI, echo=False)
-    jira_df.to_sql('jiraissues', engine, schema='public', if_exists='replace', dtype=None)
+    engine = create_engine(URI, echo=True)
+    jira_df.to_sql('jira', engine, schema='public', if_exists='replace', dtype=None)

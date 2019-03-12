@@ -19,8 +19,6 @@ class JiraDataframeConstructor:
         issue_list = [cls.make_issue_body(issue) for issue in issue_list_chunk]
         issue_json_list = [cls.dict_to_json_string(issue) for issue in issue_list]
         jira_df = json_normalize(issue_json_list)
-        print(jira_df)
-        jira_df.to_csv('data/jiratest.csv')
         return jira_df
 
     @staticmethod
