@@ -11,9 +11,9 @@ class JiraDataFrameConstructor:
         """Make DataFrame out of data received from JIRA API."""
         issue_list = [cls.make_issue_body(issue) for issue in issue_list_chunk]
         issue_json_list = [cls.dict_to_json_string(issue) for issue in issue_list]
-        jira_df = json_normalize(issue_json_list)
-        jira_df = cls.add_epic_metadata(jira_df)
-        return jira_df
+        issues_df = json_normalize(issue_json_list)
+        complete_df = cls.add_epic_metadata(issues_df)
+        return complete_df
 
     @staticmethod
     def dict_to_json_string(issue_dict):
@@ -23,10 +23,10 @@ class JiraDataFrameConstructor:
         return issue_json
 
     @staticmethod
-    def add_epic_metadata(jira_df):
+    def add_epic_metadata(issues_df):
         """Perform a merge to add additional metadata."""
-        epic_df = pd.read_csv('data/epics.csv')
-        final_df = pd.merge(jira_df, epic_df, how='left', on=['epic_link'])
+        epic_df = pd.read_csv('../data/epics.csv')
+        final_df = pd.merge(issues_df, epic_df, how='left', on=['epic_link'])
         return final_df
 
     @staticmethod
