@@ -1,10 +1,10 @@
-from flask import make_response, request
+from flask import make_response
 from jiraserverless.fetch import fetch_public_jira_issues
 from jiraserverless.data import JiraDataFrameConstructor
 from jiraserverless.db import upload_dataframe_to_database
 
 
-def main(request):
+def main():
     """Application Entry Point.
 
     1. Fetch all desired JIRA issues from an instance's REST API.
