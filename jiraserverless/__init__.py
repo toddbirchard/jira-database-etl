@@ -1,1 +1,1 @@
-all = ['data', 'db', 'fetch', 'main']
+all = ['data', 'db', 'fetch']

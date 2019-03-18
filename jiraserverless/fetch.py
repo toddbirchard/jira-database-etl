@@ -33,8 +33,12 @@ def fetch_public_jira_issues():
                            auth=(username, password)
                            )
         response = req.json()
-        total_results = response['total']
-        return total_results
+        try:
+            total_results = response['total']
+            return total_results
+        except KeyError:
+            print('Could not find any issues!')
+
 
     total_results = get_total_number_of_issues()
 

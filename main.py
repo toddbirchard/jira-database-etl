@@ -1,4 +1,4 @@
-from flask import make_response
+from flask import make_response, request
 from jiraserverless.fetch import fetch_public_jira_issues
 from jiraserverless.data import JiraDataFrameConstructor
 from jiraserverless.db import upload_dataframe_to_database
