@@ -14,7 +14,7 @@ def fetch_public_jira_issues():
     username = os.environ.get('JIRA_USERNAME')
     password = os.environ.get('JIRA_PASSWORD')
     endpoint = os.environ.get('JIRA_ENDPOINT')
-    jql = os.environ.get('JIRA_QUERY')
+    jql = 'project in ("Hackers and Slackers", "DevOps", "Linkbox API", "Roblog", "Toddzilla", "Tableau Extraction", "ghostthemes.io") AND status != Decline ORDER BY updated DESC'
     headers = {
         "Accept": "application/json"
     }

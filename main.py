@@ -15,3 +15,6 @@ def main():
     jira_df = JiraDataFrameConstructor.construct_dataframe_for_upload(issues_json)
     upload_status = upload_dataframe_to_database(jira_df)
     return make_response(upload_status, 200)
+
+
+main()
