@@ -1,8 +1,9 @@
 import os
+import math
 import requests
 
 
-def fetch_public_jira_issues():
+class fetchPublicJiraIssues:
     """Fetch all public-facing issues from JIRA instance.
 
     1. Retrieve all values from env vars.
@@ -18,19 +19,19 @@ def fetch_public_jira_issues():
     headers = {
         "Accept": "application/json"
     }
-    arr = []
 
-    def get_total_number_of_issues():
+    @classmethod
+    def get_total_number_of_issues(cls):
         """Gets the total number of results."""
         params = {
-            "jql": jql,
+            "jql": cls.jql,
             "maxResults": 0,
             "startAt": 0
         }
-        req = requests.get(endpoint,
-                           headers=headers,
+        req = requests.get(cls.endpoint,
+                           headers=cls.headers,
                            params=params,
-                           auth=(username, password)
+                           auth=(cls.username, cls.password)
                            )
         response = req.json()
         try:
@@ -39,33 +40,33 @@ def fetch_public_jira_issues():
         except KeyError:
             print('Could not find any issues!')
 
-
-    total_results = get_total_number_of_issues()
-
-    def fetch_page_of_results():
+    @classmethod
+    def fetch_all_pages_of_results(cls):
         """Recursively retrieve all pages of JIRA issues."""
-        params = {
-            "jql": jql,
-            "maxResults": results_per_page,
-            "startAt": len(arr)
-        }
-        req = requests.get(endpoint,
-                           headers=headers,
-                           params=params,
-                           auth=(username, password)
-                           )
-        response = req.json()
-        issues = response['issues']
-        issues_so_far = len(arr) + results_per_page
-        print(issues_so_far, ' out of', total_results)
-        arr.extend(issues)
-        # Check if additional pages of results exist.
-        if issues_so_far < total_results:
-            fetch_page_of_results()
-        return arr
+        total_results = cls.get_total_number_of_issues()
+        issue_arr = []
 
-    results = fetch_page_of_results()
-    return results
+        def fetch_single_page():
+            params = {
+                "jql": cls.jql,
+                "maxResults": cls.results_per_page,
+                "startAt": len(issue_arr)
+            }
+            req = requests.get(cls.endpoint,
+                               headers=cls.headers,
+                               params=params,
+                               auth=(cls.username, cls.password)
+                               )
+            response = req.json()
+            issues = response['issues']
+            issues_so_far = len(issue_arr) + cls.results_per_page
+            print(issues_so_far, ' out of', total_results)
+            issue_arr.extend(issues)
+            # Check if additional pages of results exist.
+        count = math.ceil(total_results/cls.results_per_page)
+        for x in range(0, count):
+            fetch_single_page()
+        return issue_arr
 
 
-jira_issues = fetch_public_jira_issues()
+jira_issues = fetchPublicJiraIssues.fetch_all_pages_of_results()
