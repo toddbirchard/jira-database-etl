@@ -13,3 +13,5 @@
 [![GitHub Forks](https://img.shields.io/github/forks/toddbirchard/serverless-jira-import.svg?style=flat-square&colorA=36363e)](https://github.com/toddbirchard/serverless-jira-import/network)
 
 ![Serverless JIRA](https://github.com/toddbirchard/serverless-jira-import/blob/master/assets/jira-serverless-import.jpg)
+
+Serverless function running on a CRON scheduler. Extracts issues from a JIRA instance via the REST API, transforms the data, and uploads said data to a databbase. Useful for creating widgets such as public-facing Kanban boards. 
