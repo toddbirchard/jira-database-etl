@@ -31,6 +31,7 @@ class DatabaseImport:
     def upload_dataframe_to_database(cls, jira_df):
         """Upload JIRA df to Postgres."""
         jira_df = cls.merge_epic_metadata(jira_df)
+        jira_df.drop(0, axis=1, inplace=True)
         jira_df.to_sql(cls.jira_table, cls.engine, if_exists='replace', schema='hackers$prod', dtype={"id": Integer,
                                                                                                       "assignee": Text,
                                                                                                       "assignee_url": Text,

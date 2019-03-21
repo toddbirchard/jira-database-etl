@@ -14,7 +14,6 @@ class JiraDataFrameConstructor:
         issue_list = [cls.make_issue_body(issue) for issue in issue_list_chunk]
         issue_json_list = [cls.dict_to_json_string(issue) for issue in issue_list]
         issues_df = json_normalize(issue_json_list)
-        issues_df['id'] = issues_df.index
         cls.export_csv_for_testing(issues_df)
         return issues_df
 
