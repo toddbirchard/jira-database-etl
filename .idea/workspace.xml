@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fa8d17b-2b59-4830-ade1-57253cf7da87" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jiraserverless/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/jiraserverless/db.py" afterDir="false" />
-    </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="38e6fdcf-6cba-48b4-95bb-d5110952078f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jiraserverless/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="19" column="94" lean-forward="true" selection-start-line="19" selection-start-column="94" selection-end-line="19" selection-end-column="94" />
+            <state relative-caret-position="276">
+              <caret line="12" column="54" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="54" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -102,105 +98,28 @@
           <provider selected="true" editor-type-id="csv-text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="21" selection-start-line="2" selection-end-line="2" selection-end-column="21" />
+            <state relative-caret-position="184">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>max_results</find>
-      <find>entry</find>
-      <find>keywords</find>
-      <find>env</find>
-      <find>make_issue_body</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>results_per_page</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/test.json" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/db.py" />
-        <option value="$PROJECT_DIR$/Pipfile" />
-        <option value="$PROJECT_DIR$/fetch.py" />
-        <option value="$PROJECT_DIR$/data.py" />
-        <option value="$PROJECT_DIR$/jiraserverless/main.py" />
-        <option value="$PROJECT_DIR$/setup.cfg" />
-        <option value="$PROJECT_DIR$/LICENSE" />
-        <option value="$PROJECT_DIR$/MANIFEST.in" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/setup2.py" />
-        <option value="$PROJECT_DIR$/jiraserverless/__init__.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/jiraserverless/data.py" />
-        <option value="$PROJECT_DIR$/jiraserverless/fetch.py" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/jiraserverless/db.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="908" />
-    <option name="y" value="128" />
-    <option name="width" value="1562" />
-    <option name="height" value="1183" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="serverless-jira-import" type="b2602c69:ProjectViewProjectNode" />
-              <item name="serverless-jira-import" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="serverless-jira-import" type="b2602c69:ProjectViewProjectNode" />
-              <item name="serverless-jira-import" type="462c0819:PsiDirectoryNode" />
-              <item name="jiraserverless" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="serverless-jira-import" type="b2602c69:ProjectViewProjectNode" />
-              <item name="serverless-jira-import" type="462c0819:PsiDirectoryNode" />
-              <item name="jiraserverless" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/jiraserverless" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -213,34 +132,6 @@
         </RuleState>
       </list>
     </option>
-  </component>
-  <component name="RunManager">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="serverless-jira-import" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="JIRA_USERNAME" value="Bro" />
-        <env name="JIRA_PASSWORD" value="a9tw3rjw" />
-        <env name="JIRA_ENDPOINT" value="https://hackersandslackers.atlassian.net/rest/api/3/search" />
-        <env name="JIRA_QUERY" value="project in (&quot;Hackers and Slackers&quot;, DevOps, hackersndslackers-api, linkbox, Roblog, Toddzilla, &quot;Tableau Extraction&quot;, &quot;ghostthemes.io&quot;) AND status != Decline ORDER BY updated DESC" />
-        <env name="SQLALCHEMY_DATABASE_URI" value="postgresql+psycopg2://postgres:a9tw3rjw@35.196.149.232:5432/jira" />
-      </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/.local/share/virtualenvs/serverless-jira-import-9lB7XioI/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://postgres:a9tw3rjw@35.196.149.232:5432/hackers-graphql SQLALCHEMY_DATABASE_NAME=hackers-graphql SQLALCHEMY_EPIC_TABLE=epicMeta SQLALCHEMY_JIRA_TABLE=jiraIssue JIRA_USERNAME=Bro JIRA_PASSWORD=a9tw3rjw JIRA_ENDPOINT=https://hackersandslackers.atlassian.net/rest/api/3/search JIRA_QUERY=project in (&quot;Hackers and Slackers&quot;, DevOps, &quot;Linkbox API, Roblog, Toddzilla, &quot;Tableau Extraction&quot;, &quot;ghostthemes.io&quot;) AND status != Decline ORDER BY updated DESC" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -256,8 +147,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="908" y="128" width="1562" height="1183" extended-state="0" />
-    <editor active="true" />
+    <frame x="396" y="197" width="1562" height="1183" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1632653" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -265,14 +155,14 @@
       <window_info id="DB Browser" order="3" weight="0.32980973" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4989429" weight="0.3293687" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49788582" visible="true" weight="0.34232557" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49788582" weight="0.34232557" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3979872" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="DB Execution Console" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.9281184" weight="0.23906977" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.9281184" visible="true" weight="0.23906977" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5021142" side_tool="true" weight="0.336688" />
       <window_info anchor="bottom" id="Python Console" order="11" sideWeight="0.49947146" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -453,13 +343,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="21" selection-start-line="2" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jiraserverless/data/epics.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
@@ -468,11 +351,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jiraserverless/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="94" lean-forward="true" selection-start-line="19" selection-start-column="94" selection-end-line="19" selection-end-column="94" />
+        <state relative-caret-position="276">
+          <caret line="12" column="54" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="54" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
