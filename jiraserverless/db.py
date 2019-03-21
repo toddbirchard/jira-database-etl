@@ -24,7 +24,7 @@ class DatabaseImport:
         """Merge epic table."""
         epics_df = pd.read_sql_table(cls.epic_table, cls.engine, schema='hackers$prod')
         print(cls.epic_table)
-        jira_df = pd.merge(jira_df, epics_df, how='left', on='epic_link', copy=False)
+        jira_df = pd.merge(jira_df, epics_df[['epic_link', 'epic_name', 'epic_color']], how='left', on='epic_link', copy=False)
         return jira_df
 
     @classmethod
