@@ -10,9 +10,10 @@ def main():
     2. Sanitize the data and add secondary metadata.
     3. Upload resulting DataFrame to database.
     """
-    issues_json = fetch.fetchPublicJiraIssues.fetch_all_pages_of_results()
+    issues_json = fetch.FetchPublicJiraIssues.fetch_all_pages_of_results()
     jira_df = data.JiraDataFrameConstructor.construct_dataframe_for_upload(issues_json)
     upload_status = db.DatabaseImport.upload_dataframe_to_database(jira_df)
     return upload_status
+
 
 main()

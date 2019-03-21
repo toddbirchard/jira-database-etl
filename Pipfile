@@ -13,7 +13,6 @@ sqlalchemy="*"
 psycopg2="*"
 psycopg2-binary="*"
 pandas="*"
-flask="*"
 pathlib="*"
 
 [requires]

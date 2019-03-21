@@ -3,7 +3,7 @@ import math
 import requests
 
 
-class fetchPublicJiraIssues:
+class FetchPublicJiraIssues:
     """Fetch all public-facing issues from JIRA instance.
 
     1. Retrieve all values from env vars.
