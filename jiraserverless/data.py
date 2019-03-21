@@ -6,6 +6,7 @@ import pathlib
 
 class JiraDataFrameConstructor:
     """Build JIRA issue DataFrame, piece by piece."""
+    issue_count = 0
 
     @classmethod
     def construct_dataframe_for_upload(cls, issue_list_chunk):
@@ -24,10 +25,11 @@ class JiraDataFrameConstructor:
         issue_json = json.loads(issue_json_string)
         return issue_json
 
-    @staticmethod
-    def make_issue_body(issue):
+    @classmethod
+    def make_issue_body(cls, issue):
         """Create a JSON body for each ticket."""
         body = {
+            'id': cls.issue_count,
             'key': str(issue['key']),
             'assignee': str(issue['fields']['assignee']['displayName']),
             'assignee_url': str(issue['fields']['assignee']['avatarUrls']['48x48']),
@@ -42,6 +44,7 @@ class JiraDataFrameConstructor:
             'project': str(issue['fields']['project']['name']),
             'updated': issue['fields']['updated']
         }
+        cls.issue_count += 1
         return body
 
     @staticmethod

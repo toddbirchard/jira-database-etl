@@ -24,14 +24,15 @@ class DatabaseImport:
         """Merge epic table."""
         epics_df = pd.read_sql_table(cls.epic_table, cls.engine, schema='hackers$prod')
         print(cls.epic_table)
-        jira_df = pd.merge(jira_df, epics_df, how='left', on='epic_link')
+        jira_df = pd.merge(jira_df, epics_df, how='left', on='epic_link', copy=False)
         return jira_df
 
     @classmethod
     def upload_dataframe_to_database(cls, jira_df):
         """Upload JIRA df to Postgres."""
         jira_df = cls.merge_epic_metadata(jira_df)
-        jira_df.to_sql(cls.jira_table, cls.engine, if_exists='replace', schema='hackers$prod', dtype={"index": Integer,
+        jira_df.index(jira_df.iloc[0], name='id')
+        jira_df.to_sql(cls.jira_table, cls.engine, if_exists='replace', schema='hackers$prod', dtype={"id": Integer,
                                                                                                       "assignee": Text,
                                                                                                       "assignee_url": Text,
                                                                                                       "epic_link": Text,
@@ -45,8 +46,6 @@ class DatabaseImport:
                                                                                                       "status": Text,
                                                                                                       "summary": Text,
                                                                                                       "updated": Text,
-                                                                                                      "id_x": Integer,
-                                                                                                      "id_y": Text,
                                                                                                       "updatedAt": TIMESTAMP,
                                                                                                       "createdAt": TIMESTAMP,
                                                                                                       "epic_color": Text,
