@@ -1,7 +1,7 @@
 from flask import make_response
 from jiraserverless.fetch import jira_issues
 from jiraserverless.data import JiraDataFrameConstructor
-from jiraserverless.db import upload_dataframe_to_database
+from jiraserverless.db import DatabaseImport
 
 
 def main():
@@ -13,5 +13,5 @@ def main():
     """
     issues_json = jira_issues
     jira_df = JiraDataFrameConstructor.construct_dataframe_for_upload(issues_json)
-    upload_status = upload_dataframe_to_database(jira_df)
+    upload_status = DatabaseImport.upload_dataframe_to_database(jira_df)
     return make_response(upload_status, 200)
