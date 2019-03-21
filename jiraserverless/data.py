@@ -35,7 +35,7 @@ class JiraDataFrameConstructor:
             'status': str(issue['fields']['status']['name']),
             'priority': str(issue['fields']['priority']['name']),
             'priority_url': str(issue['fields']['priority']['iconUrl']),
-            'priority_rank': issue['fields']['priority']['id'],
+            'priority_rank': int(issue['fields']['priority']['id']),
             'issuetype': str(issue['fields']['issuetype']['name']),
             'issuetype_icon': str(issue['fields']['issuetype']['iconUrl']),
             'epic_link': str(issue['fields']['customfield_10008']),

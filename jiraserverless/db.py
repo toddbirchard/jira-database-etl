@@ -1,6 +1,7 @@
 import os
 import logging
 from sqlalchemy import create_engine
+from sqlalchemy.types import Integer, Text, TIMESTAMP
 import pandas as pd
 
 logging.basicConfig()
@@ -30,6 +31,26 @@ class DatabaseImport:
     def upload_dataframe_to_database(cls, jira_df):
         """Upload JIRA df to Postgres."""
         jira_df = cls.merge_epic_metadata(jira_df)
-        jira_df.to_sql(cls.jira_table, cls.engine, if_exists='replace', schema='hackers$prod', dtype=None)
+        jira_df.to_sql(cls.jira_table, cls.engine, if_exists='replace', schema='hackers$prod', dtype={"index": Integer,
+                                                                                                      "assignee": Text,
+                                                                                                      "assignee_url": Text,
+                                                                                                      "epic_link": Text,
+                                                                                                      "issuetype": Text,
+                                                                                                      "issuetype_icon": Text,
+                                                                                                      "key": Text,
+                                                                                                      "priority": Text,
+                                                                                                      "priority_rank": Text,
+                                                                                                      "priority_url": Text,
+                                                                                                      "project": Text,
+                                                                                                      "status": Text,
+                                                                                                      "summary": Text,
+                                                                                                      "updated": Text,
+                                                                                                      "id_x": Integer,
+                                                                                                      "id_y": Text,
+                                                                                                      "updatedAt": TIMESTAMP,
+                                                                                                      "createdAt": TIMESTAMP,
+                                                                                                      "epic_color": Text,
+                                                                                                      "epic_name": Text
+                                                                                                      })
         success_message = 'Successfully uploaded' + str(jira_df.count) + ' rows to ' + cls.db_name
         return success_message
