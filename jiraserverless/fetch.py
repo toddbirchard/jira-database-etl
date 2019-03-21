@@ -67,6 +67,3 @@ class fetchPublicJiraIssues:
         for x in range(0, count):
             fetch_single_page()
         return issue_arr
-
-
-jira_issues = fetchPublicJiraIssues.fetch_all_pages_of_results()

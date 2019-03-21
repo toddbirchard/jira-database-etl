@@ -1,5 +1,7 @@
+import os
 import json
 from pandas.io.json import json_normalize
+import pathlib
 
 
 class JiraDataFrameConstructor:
@@ -12,6 +14,7 @@ class JiraDataFrameConstructor:
         issue_json_list = [cls.dict_to_json_string(issue) for issue in issue_list]
         issues_df = json_normalize(issue_json_list)
         issues_df['id'] = issues_df.index
+        cls.export_csv_for_testing(issues_df)
         return issues_df
 
     @staticmethod
@@ -40,3 +43,12 @@ class JiraDataFrameConstructor:
             'updated': issue['fields']['updated']
         }
         return body
+
+    @staticmethod
+    def export_csv_for_testing(issues_df):
+        """Export test CSV of JIRA issues."""
+        data_path = pathlib.Path('jiraserverless/datafiles')
+        csv_export_path = data_path / 'jiraissues.csv'
+        csv_export_path = csv_export_path.resolve()
+        print('csv_export_path = ', csv_export_path)
+        issues_df.to_csv('csv_export_path.csv')

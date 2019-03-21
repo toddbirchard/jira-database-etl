@@ -6,6 +6,7 @@ import pandas as pd
 logging.basicConfig()
 logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
+
 class DatabaseImport:
     """Merge Epic metadata and upload JIRA issues."""
 

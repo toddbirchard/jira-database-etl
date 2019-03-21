@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 python-dotenv="*"
+logger="*"
 
 [packages]
 requests="*"
@@ -13,6 +14,7 @@ psycopg2="*"
 psycopg2-binary="*"
 pandas="*"
 flask="*"
+pathlib="*"
 
 [requires]
 python_version = "3.7"

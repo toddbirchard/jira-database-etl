@@ -1,9 +1,4 @@
-"""A setuptools based setup module.
-
-See:
-https://packaging.python.org/en/latest/distributing.html
-https://github.com/pypa/sampleproject
-"""
+"""A setuptools based setup module."""
 
 # Always prefer setuptools over distutils
 from os import path
@@ -35,7 +30,7 @@ setup(
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='Serverless-JIRA-Database-Import',  # Required
+    name='JIR Database ETL',  # Required
 
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
@@ -125,9 +120,9 @@ setup(
     # the `py_modules` argument instead as follows, which will expect a file
     # called `my_module.py` to exist:
     #
-    py_modules=["my_module"],
+    # py_modules=["my_module"],
     #
-    packages=find_packages(exclude=['jiraserverless']),  # Required
+    packages=find_packages(),  # Required
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
@@ -176,7 +171,7 @@ setup(
     # executes the function `main` from this package when invoked:
     entry_points={  # Optional
         'console_scripts': [
-            'jiraimport=jiraserverless:main',
+            '__main__',
         ],
     },
 
@@ -190,7 +185,7 @@ setup(
     # maintainers, and where to support the project financially. The key is
     # what's used to render the link text on PyPI.
     project_urls={  # Optional
-        'Bug Reports': 'https://github.com/toddbirchard/serverless-jira-import/issues',
-        'Source': 'https://github.com/toddbirchard/serverless-jira-import/',
+        'Bug Reports': 'https://github.com/toddbirchard/jira-database-etl/issues',
+        'Source': 'https://github.com/toddbirchard/jira-database-etl/',
     },
 )
