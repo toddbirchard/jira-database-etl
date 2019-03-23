@@ -25,7 +25,7 @@ class DatabaseImport:
 
     @classmethod
     def merge_epic_metadata(cls, jira_df):
-        """Merge epic table."""
+        """Merge epic metadata from existing SQL table."""
         epics_df = pd.read_sql_table(cls.db_epic_table, cls.engine, schema=cls.db_schema)
         jira_df = pd.merge(jira_df, epics_df[['epic_link', 'epic_name', 'epic_color']],
                            how='left',
@@ -35,7 +35,7 @@ class DatabaseImport:
 
     @classmethod
     def upload_dataframe_to_database(cls, jira_df):
-        """Upload JIRA df to Postgres."""
+        """Upload JIRA DataFrame to PostgreSQL database."""
         jira_df = cls.merge_epic_metadata(jira_df)
         jira_df.to_sql(cls.db_jira_table, cls.engine, if_exists='replace', schema=cls.db_schema, dtype={"id": Integer,
                                                                                                         "assignee": Text,
