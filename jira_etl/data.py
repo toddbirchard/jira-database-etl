@@ -49,8 +49,8 @@ class JiraDataFrameConstructor:
     @staticmethod
     def export_csv_for_testing(issues_df):
         """Export test CSV of JIRA issues."""
-        data_path = pathlib.Path('jiraserverless/datafiles')
+        data_path = pathlib.Path('jira_etl/datafiles')
         csv_export_path = data_path / 'jiraissues.csv'
         csv_export_path = csv_export_path.resolve()
         print('csv_export_path = ', csv_export_path)
-        issues_df.to_csv('csv_export_path.csv')
+        issues_df.to_csv('jira_etl/datafiles/csv_export_path.csv')
