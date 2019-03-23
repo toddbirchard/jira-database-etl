@@ -1,4 +1,4 @@
-# Serverless JIRA-to-Database Import
+# JIRA-to-Database Import
 
 ![Python](https://img.shields.io/badge/Python-3.7.2-blue.svg?logo=python&longCache=true&logoColor=white&colorB=23a8e2&style=flat-square&colorA=36363e)
 ![Pandas](https://img.shields.io/badge/Pandas-0.23.0-blue.svg?logo=python&longCache=true&logoColor=white&colorB=23a8e2&style=flat-square&colorA=36363e)

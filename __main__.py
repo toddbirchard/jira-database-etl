@@ -1,6 +1,6 @@
-from jiraserverless import fetch
-from jiraserverless import data
-from jiraserverless import db
+from jira_etl import fetch
+from jira_etl import data
+from jira_etl import db
 
 
 def main():

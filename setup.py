@@ -43,7 +43,7 @@ setup(
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='Utilizes Google Cloud Functions to import issues from a JIRA instance into a database.',  # Optional
+    description='Script to import issues from a JIRA instance into a database.',  # Optional
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
@@ -71,7 +71,7 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/toddbirchard/serverless-jira-import',  # Optional
+    url='https://github.com/toddbirchard/jira-database-etl',  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
@@ -130,7 +130,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['requests', 'pandas', 'sqlalchemy', 'psycopg2', 'psycopg2-binary', 'flask'],  # Optional
+    install_requires=['requests', 'pandas', 'sqlalchemy', 'psycopg2', 'psycopg2-binary', 'pathlib'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
