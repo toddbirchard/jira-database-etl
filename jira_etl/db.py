@@ -9,7 +9,11 @@ logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
 
 class DatabaseImport:
-    """Merge Epic metadata and upload JIRA issues."""
+    """Merge Epic metadata and upload JIRA issues.
+
+    1. Merge Epic metadata by fetching an existing table.
+    2. Create a new table from the final jira_df.
+    """
 
     URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
     db_epic_table = os.environ.get('SQLALCHEMY_EPIC_TABLE')

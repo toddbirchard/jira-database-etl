@@ -13,7 +13,6 @@ sqlalchemy="*"
 psycopg2="*"
 psycopg2-binary="*"
 pandas="*"
-pathlib="*"
 
 [requires]
 python_version = "3.7"
