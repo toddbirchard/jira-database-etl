@@ -3,18 +3,24 @@ import json
 from pandas.io.json import json_normalize
 
 
-class JiraDataFrameConstructor:
-    """Build JIRA issue DataFrame, piece by piece."""
+class TransformData:
+    """Build JIRA issue DataFrame.
+
+    1. Loop through JIRA issues and create a dictionary of desired data.
+    2. Convert each issue dictionary into a JSON object.
+    3. Load all issues into a Pandas DataFrame.
+    """
+
     issue_count = 0
 
     @classmethod
-    def construct_dataframe_for_upload(cls, issue_list_chunk):
+    def construct_dataframe(cls, issue_list_chunk):
         """Make DataFrame out of data received from JIRA API."""
         issue_list = [cls.make_issue_body(issue) for issue in issue_list_chunk]
         issue_json_list = [cls.dict_to_json_string(issue) for issue in issue_list]
-        issues_df = json_normalize(issue_json_list)
-        cls.export_csv_for_testing(issues_df)
-        return issues_df
+        jira_issues_df = json_normalize(issue_json_list)
+        jira_issues_df.to_csv('jira_etl/datafiles/csv_export_path.csv')
+        return jira_issues_df
 
     @staticmethod
     def dict_to_json_string(issue_dict):
@@ -44,8 +50,3 @@ class JiraDataFrameConstructor:
         }
         cls.issue_count += 1
         return body
-
-    @staticmethod
-    def export_csv_for_testing(issues_df):
-        """Export test CSV of JIRA issues."""
-        issues_df.to_csv('jira_etl/datafiles/csv_export_path.csv')

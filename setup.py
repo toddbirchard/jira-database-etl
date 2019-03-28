@@ -30,7 +30,7 @@ setup(
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='JIRA Database ETL',  # Required
+    name='jira_database_etl',  # Required
 
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
@@ -111,7 +111,7 @@ setup(
     # project page. What does your project relate to?
     #
     # Note that this is a string of words separated by whitespace, not a list.
-    keywords='jira serverless database pipeline',  # Optional
+    keywords='JIRA ETL database pipeline data import',  # Optional
 
     # You can just specify package directories manually here if your project is
     # simple. Or you can use find_packages().
@@ -130,7 +130,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['requests', 'pandas', 'sqlalchemy', 'psycopg2', 'psycopg2-binary', 'pathlib'],  # Optional
+    install_requires=['requests', 'pandas', 'sqlalchemy', 'psycopg2', 'psycopg2-binary'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"

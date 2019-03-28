@@ -3,7 +3,7 @@ import math
 import requests
 
 
-class FetchPublicJiraIssues:
+class FetchJiraIssues:
     """Fetch all public-facing issues from JIRA instance.
 
     1. Retrieve all values from env vars.
@@ -41,12 +41,13 @@ class FetchPublicJiraIssues:
             print('Could not find any issues!')
 
     @classmethod
-    def fetch_all_pages_of_results(cls):
+    def fetch_all_results(cls):
         """Recursively retrieve all pages of JIRA issues."""
         total_results = cls.get_total_number_of_issues()
         issue_arr = []
 
         def fetch_single_page():
+            """Fetch one page of results and determine if another page exists."""
             params = {
                 "jql": cls.jql,
                 "maxResults": cls.results_per_page,
