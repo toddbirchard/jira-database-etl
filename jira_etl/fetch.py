@@ -43,10 +43,10 @@ class FetchJiraIssues:
     @classmethod
     def fetch_all_results(cls):
         """Recursively retrieve all pages of JIRA issues."""
-        total_results = cls.get_total_number_of_issues()
         issue_arr = []
+        total_results = cls.get_total_number_of_issues()
 
-        def fetch_single_page():
+        def fetch_single_page(total_results):
             """Fetch one page of results and determine if another page exists."""
             params = {
                 "jql": cls.jql,
@@ -66,5 +66,5 @@ class FetchJiraIssues:
             # Check if additional pages of results exist.
         count = math.ceil(total_results/cls.results_per_page)
         for x in range(0, count):
-            fetch_single_page()
+            fetch_single_page(total_results)
         return issue_arr
