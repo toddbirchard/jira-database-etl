@@ -19,7 +19,6 @@ class TransformData:
         issue_list = [cls.make_issue_body(issue) for issue in issue_list_chunk]
         issue_json_list = [cls.dict_to_json_string(issue) for issue in issue_list]
         jira_issues_df = json_normalize(issue_json_list)
-        jira_issues_df.to_csv('jira_etl/datafiles/csv_export_path.csv')
         return jira_issues_df
 
     @staticmethod
