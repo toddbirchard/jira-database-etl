@@ -1,7 +1,7 @@
 import os
 import logging
-from sqlalchemy import create_engine
-from sqlalchemy.types import Integer, Text, TIMESTAMP
+from sqlalchemy import create_engine, text, MetaData
+from sqlalchemy.types import Integer, Text, TIMESTAMP, String
 import pandas as pd
 
 logging.basicConfig()
@@ -22,11 +22,19 @@ class DatabaseImport:
     db_schema = os.environ.get('SQLALCHEMY_DB_SCHEMA')
 
     # Create Engine
+    meta = MetaData(schema="hackers$prod")
     engine = create_engine(URI, echo=True)
+
+    @staticmethod
+    def truncate_table(engine):
+        """Clear table of data."""
+        sql = text('TRUNCATE TABLE "hackers$prod"."JiraIssue"')
+        engine.execute(sql)
 
     @classmethod
     def merge_epic_metadata(cls, jira_issues_df):
         """Merge epic metadata from existing SQL table."""
+        cls.truncate_table(cls.engine)
         epics_df = pd.read_sql_table(cls.db_epic_table,
                                      cls.engine,
                                      schema=cls.db_schema)
@@ -43,26 +51,26 @@ class DatabaseImport:
         jira_issues_df = cls.merge_epic_metadata(jira_issues_df)
         jira_issues_df.to_sql(cls.db_jira_table,
                               cls.engine,
-                              if_exists='replace',
+                              if_exists='append',
                               schema=cls.db_schema,
-                              dtype={"id": Integer,
-                                     "assignee": Text,
+                              index=False,
+                              dtype={"assignee": String(30),
                                      "assignee_url": Text,
-                                     "epic_link": Text,
-                                     "issuetype": Text,
+                                     "epic_link": String(50),
+                                     "issuetype_name": String(50),
                                      "issuetype_icon": Text,
-                                     "key": Text,
-                                     "priority": Text,
-                                     "priority_rank": Text,
+                                     "key": String(10),
+                                     "priority_name": String(30),
+                                     "priority_rank": Integer,
                                      "priority_url": Text,
-                                     "project": Text,
-                                     "status": Text,
+                                     "project": String(50),
+                                     "status": String(30),
                                      "summary": Text,
-                                     "updated": Text,
+                                     "updated": Integer,
                                      "updatedAt": TIMESTAMP,
                                      "createdAt": TIMESTAMP,
-                                     "epic_color": Text,
-                                     "epic_name": Text
+                                     "epic_color": String(20),
+                                     "epic_name": String(50)
                                      })
         success_message = 'Successfully uploaded' \
                           + str(jira_issues_df.count) \

@@ -5,3 +5,4 @@ __pycache__
 .idea
 .DS_Store
 datafiles
+ca-certificate.crt
