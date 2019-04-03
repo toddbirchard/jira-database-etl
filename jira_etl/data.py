@@ -7,9 +7,10 @@ from datetime import datetime
 class TransformData:
     """Build JIRA issue DataFrame.
 
-    1. Loop through JIRA issues and create a dictionary of desired data.
-    2. Convert each issue dictionary into a JSON object.
-    3. Load all issues into a Pandas DataFrame.
+    1. Create an empty DataFrame and set index.
+    2. Loop through JIRA issues and create a dictionary of desired data.
+    3. Convert each issue dictionary into a JSON object.
+    4. Load all issues into Pandas DataFrame.
     """
 
     issue_count = 0
