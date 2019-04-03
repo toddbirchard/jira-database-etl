@@ -73,7 +73,6 @@ class DatabaseImport:
                                      "epic_name": String(50)
                                      })
         success_message = 'Successfully uploaded' \
-                          + str(jira_issues_df.count) \
-                          + str(jira_issues_df.count) \
+                          + str(len(jira_issues_df.index)) \
                           + ' rows to ' + cls.db_jira_table
         return success_message
