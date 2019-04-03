@@ -19,22 +19,6 @@ class TransformData:
         """Make DataFrame out of data received from JIRA API."""
         issue_list = [cls.make_issue_body(issue) for issue in issue_list_chunk]
         issue_json_list = [cls.dict_to_json_string(issue) for issue in issue_list]
-        '''jira_issues_df = pd.DataFrame(index='id', columns=['id',
-                                                           'key',
-                                                           'assignee',
-                                                           'assignee_url',
-                                                           'summary',
-                                                           'priority',
-                                                           'priority_url',
-                                                           'priority_rank',
-                                                           'issuetype_name',
-                                                           'issuetype_icon',
-                                                           'epic_link',
-                                                           'updated'
-                                                           ])
-        jira_issues_df.set_index('id', inplace=True)
-        issues_from_json_df = json_normalize(issue_json_list)
-        jira_issues_df.append(issues_from_json_df, ignore_index=True)'''
         jira_issues_df = json_normalize(issue_json_list)
         return jira_issues_df
 
