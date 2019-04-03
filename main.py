@@ -4,7 +4,7 @@ from jira_etl import data
 from jira_etl import db
 
 
-def main():
+def main(request):
     """Application Entry Point.
 
     1. Fetch all desired JIRA issues from an instance's REST API.
@@ -15,6 +15,3 @@ def main():
     jira_issues_df = data.TransformData.construct_dataframe(jira_issues_json)
     upload_status = db.DatabaseImport.upload_dataframe(jira_issues_df)
     return upload_status
-
-
-main()
