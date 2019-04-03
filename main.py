@@ -1,3 +1,4 @@
+from flask import request
 from jira_etl import fetch
 from jira_etl import data
 from jira_etl import db
