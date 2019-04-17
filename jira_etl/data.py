@@ -39,7 +39,7 @@ class TransformData:
             'assignee_name': str(issue['fields']['assignee']['displayName']),
             'assignee_url': str(issue['fields']['assignee']['avatarUrls']['48x48']),
             'summary': str(issue['fields']['summary']),
-            'status': str(issue['fields']['status']['name']),
+            'status': str(issue['fields']['status']['name']).replace(' ', ''),
             'priority_url': str(issue['fields']['priority']['iconUrl']),
             'priority_rank': int(issue['fields']['priority']['id']),
             'issuetype_name': str(issue['fields']['issuetype']['name']),
