@@ -3,6 +3,7 @@ import logging
 from sqlalchemy import create_engine, text, MetaData
 from sqlalchemy.types import Integer, Text, TIMESTAMP, String
 import pandas as pd
+import pymongo
 
 logging.basicConfig()
 logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
