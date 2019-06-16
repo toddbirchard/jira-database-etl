@@ -1,9 +1,8 @@
-import os
+from os import environ
 import logging
-from sqlalchemy import create_engine, text, MetaData
+from sqlalchemy import create_engine, MetaData, text
 from sqlalchemy.types import Integer, Text, TIMESTAMP, String
 import pandas as pd
-import pymongo
 
 logging.basicConfig()
 logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
@@ -17,14 +16,16 @@ class DatabaseImport:
     2. Create a new table from the final jira_issues_df.
     """
 
-    URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
-    db_epic_table = os.environ.get('SQLALCHEMY_EPIC_TABLE')
-    db_jira_table = os.environ.get('SQLALCHEMY_JIRA_TABLE')
-    db_schema = os.environ.get('SQLALCHEMY_DB_SCHEMA')
+    URI = environ.get('SQLALCHEMY_DATABASE_URI')
+    db_epic_table = environ.get('SQLALCHEMY_EPIC_TABLE')
+    db_jira_table = environ.get('SQLALCHEMY_JIRA_TABLE')
+    db_schema = environ.get('SQLALCHEMY_DB_SCHEMA')
 
     # Create Engine
-    meta = MetaData(schema="hackers$prod")
-    engine = create_engine(URI, echo=True)
+    meta = MetaData(schema=db_schema)
+    engine = create_engine(URI,
+                           connect_args={'sslmode':'require'},
+                           echo=True)
 
     @staticmethod
     def truncate_table(engine):
@@ -71,8 +72,7 @@ class DatabaseImport:
                                      "updatedAt": TIMESTAMP,
                                      "createdAt": TIMESTAMP,
                                      "epic_color": String(20),
-                                     "epic_name": String(50)
-                                     })
+                                     "epic_name": String(50)})
         success_message = 'Successfully uploaded' \
                           + str(jira_issues_df.count) \
                           + str(jira_issues_df.count) \
