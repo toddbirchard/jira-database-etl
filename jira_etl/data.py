@@ -1,4 +1,3 @@
-import os
 import json
 from pandas.io.json import json_normalize
 from datetime import datetime

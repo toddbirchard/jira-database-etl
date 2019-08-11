@@ -24,7 +24,7 @@ class DatabaseImport:
     # Create Engine
     meta = MetaData(schema=db_schema)
     engine = create_engine(URI,
-                           connect_args={'sslmode':'require'},
+                           connect_args={'sslmode': 'require'},
                            echo=True)
 
     @staticmethod

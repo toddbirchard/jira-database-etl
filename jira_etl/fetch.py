@@ -1,4 +1,4 @@
-import os
+from os import environ
 import math
 import requests
 
@@ -12,10 +12,10 @@ class FetchJiraIssues:
     4. Pass final JSON to be transformed into a DataFrame.
      """
     results_per_page = 100
-    username = os.environ.get('JIRA_USERNAME')
-    password = os.environ.get('JIRA_PASSWORD')
-    endpoint = os.environ.get('JIRA_ENDPOINT')
-    jql = os.environ.get('JIRA_QUERY')
+    username = environ.get('JIRA_USERNAME')
+    password = environ.get('JIRA_PASSWORD')
+    endpoint = environ.get('JIRA_ENDPOINT')
+    jql = environ.get('JIRA_QUERY')
     headers = {
         "Accept": "application/json"
     }
