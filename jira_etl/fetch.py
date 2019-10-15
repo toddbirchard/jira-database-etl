@@ -1,6 +1,6 @@
-from os import environ
 import math
 import requests
+from config import Config
 
 
 class FetchJiraIssues:
@@ -11,11 +11,12 @@ class FetchJiraIssues:
     3. Fetch paginated issues via recursion.
     4. Pass final JSON to be transformed into a DataFrame.
      """
+    jira_username = Config.jira_username
+    jira_password = Config.jira_password
+    jira_endpoint = Config.jira_endpoint
+    jira_jql = Config.jira_jql
     results_per_page = 100
-    username = environ.get('JIRA_USERNAME')
-    password = environ.get('JIRA_PASSWORD')
-    endpoint = environ.get('JIRA_ENDPOINT')
-    jql = environ.get('JIRA_QUERY')
+
     headers = {
         "Accept": "application/json"
     }
@@ -24,14 +25,14 @@ class FetchJiraIssues:
     def get_total_number_of_issues(cls):
         """Gets the total number of results."""
         params = {
-            "jql": cls.jql,
+            "jql": cls.jira_jql,
             "maxResults": 0,
             "startAt": 0
         }
-        req = requests.get(cls.endpoint,
+        req = requests.get(cls.jira_endpoint,
                            headers=cls.headers,
                            params=params,
-                           auth=(cls.username, cls.password)
+                           auth=(cls.jira_username, cls.jira_password)
                            )
         response = req.json()
         try:
@@ -49,14 +50,14 @@ class FetchJiraIssues:
         def fetch_single_page(total_results):
             """Fetch one page of results and determine if another page exists."""
             params = {
-                "jql": cls.jql,
+                "jql": cls.jira_jql,
                 "maxResults": cls.results_per_page,
                 "startAt": len(issue_arr)
             }
-            req = requests.get(cls.endpoint,
+            req = requests.get(cls.jira_endpoint,
                                headers=cls.headers,
                                params=params,
-                               auth=(cls.username, cls.password)
+                               auth=(cls.jira_username, cls.jira_password)
                                )
             response = req.json()
             issues = response['issues']

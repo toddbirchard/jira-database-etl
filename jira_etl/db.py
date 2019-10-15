@@ -1,14 +1,15 @@
-from os import environ
 import logging
 from sqlalchemy import create_engine, MetaData, text
 from sqlalchemy.types import Integer, Text, TIMESTAMP, String
 import pandas as pd
+from config import Config
+
 
 logging.basicConfig()
 logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
 
-class DatabaseImport:
+class Database:
     """Merge Epic metadata and upload JIRA issues.
 
     1. Merge Epic metadata by fetching an existing table.
@@ -16,14 +17,12 @@ class DatabaseImport:
     2. Create a new table from the final jira_issues_df.
     """
 
-    URI = environ.get('SQLALCHEMY_DATABASE_URI')
-    db_epic_table = environ.get('SQLALCHEMY_EPIC_TABLE')
-    db_jira_table = environ.get('SQLALCHEMY_JIRA_TABLE')
-    db_schema = environ.get('SQLALCHEMY_DB_SCHEMA')
+    db_uri = Config.db_uri
+    db_epic_table = Config.db_epic_table
+    db_jira_table = Config.db_epic_table
 
     # Create Engine
-    meta = MetaData(schema=db_schema)
-    engine = create_engine(URI,
+    engine = create_engine(db_uri,
                            connect_args={'sslmode': 'require'},
                            echo=True)
 

@@ -1,6 +1,6 @@
-from jira_etl import fetch
-from jira_etl import data
-from jira_etl import db
+from jira_etl.fetch import FetchJiraIssues
+from jira_etl.data import TransformData
+from jira_etl.db import Database
 
 
 def main():
@@ -10,9 +10,9 @@ def main():
     2. Sanitize the data and add secondary metadata.
     3. Upload resulting DataFrame to database.
     """
-    jira_issues_json = fetch.FetchJiraIssues.fetch_all_results()
-    jira_issues_df = data.TransformData.construct_dataframe(jira_issues_json)
-    upload_status = db.DatabaseImport.upload_dataframe(jira_issues_df)
+    jira_issues_json = FetchJiraIssues.fetch_all_results()
+    jira_issues_df = TransformData.construct_dataframe(jira_issues_json)
+    upload_status = Database.upload_dataframe(jira_issues_df)
     return upload_status
 
 
