@@ -10,7 +10,7 @@ logger = "*"
 [packages]
 Requests = "*"
 SQLAlchemy = "*"
-Psycopg2-Binary = "*"
+PyMySQL = "*"
 Pandas = "*"
 
 [requires]

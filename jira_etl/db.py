@@ -1,5 +1,5 @@
 import logging
-from sqlalchemy import create_engine, MetaData, text
+from sqlalchemy import create_engine, text
 from sqlalchemy.types import Integer, Text, TIMESTAMP, String
 import pandas as pd
 from config import Config
@@ -18,18 +18,16 @@ class Database:
     """
 
     db_uri = Config.db_uri
-    db_epic_table = Config.db_epic_table
-    db_jira_table = Config.db_epic_table
+    db_jira_table = Config.db_jira_table
 
     # Create Engine
     engine = create_engine(db_uri,
-                           connect_args={'sslmode': 'require'},
                            echo=True)
 
     @staticmethod
     def truncate_table(engine):
         """Clear table of data."""
-        sql = text('TRUNCATE TABLE "hackers$prod"."JiraIssue"')
+        sql = text('TRUNCATE TABLE JiraIssue"')
         engine.execute(sql)
 
     @classmethod
@@ -49,11 +47,10 @@ class Database:
     @classmethod
     def upload_dataframe(cls, jira_issues_df):
         """Upload JIRA DataFrame to PostgreSQL database."""
-        jira_issues_df = cls.merge_epic_metadata(jira_issues_df)
+        # jira_issues_df = cls.merge_epic_metadata(jira_issues_df)
         jira_issues_df.to_sql(cls.db_jira_table,
                               cls.engine,
                               if_exists='append',
-                              schema=cls.db_schema,
                               index=False,
                               dtype={"assignee": String(30),
                                      "assignee_url": Text,
