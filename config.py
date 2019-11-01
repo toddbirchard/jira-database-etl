@@ -12,4 +12,7 @@ class Config:
     jira_username = environ.get('JIRA_USERNAME')
     jira_password = environ.get('JIRA_PASSWORD')
     jira_endpoint = environ.get('JIRA_ENDPOINT')
-    jira_jql = environ.get('JIRA_QUERY')
+    jira_issues_jql = environ.get('JIRA_ISSUES_JQL')
+    jira_issues_fields = environ.get('JIRA_ISSUES_FIELDS')
+    jira_epics_jql = environ.get('JIRA_EPICS_JQL')
+    jira_epics_fields = environ.get('JIRA_EPICS_FIELS')
