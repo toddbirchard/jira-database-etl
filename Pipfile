@@ -4,14 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-python-dotenv = "*"
-logger = "*"
 
 [packages]
 Requests = "*"
 SQLAlchemy = "*"
 PyMySQL = "*"
 Pandas = "*"
+python-dotenv = "*"
+logger = "*"
 
 [requires]
 python_version = "3.7"
