@@ -10,9 +10,9 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='jira_database_etl',  # Required
-    version='0.0.1',  # Required
-    description='Script to import issues from a JIRA instance into a database.',
+    name='jira_database_etl',
+    version='1.0.0',
+    description='Import JIRA issue data into a SQL database.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/toddbirchard/jira-database-etl',
@@ -20,18 +20,17 @@ setup(
     author_email='toddbirchard@gmail.com',
     classifiers=[
         'Development Status :: 3 - Alpha',
-        # Indicate who your project is intended for
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
     keywords='JIRA ETL database pipeline data import',
     packages=find_packages(),
-    install_requires=['requests',
-                      'pandas',
-                      'sqlalchemy',
-                      'pymysql'],
+    install_requires=['Requests',
+                      'Pandas',
+                      'SQLAlchemy',
+                      'PyMySQL',
+                      'python-dotenv'],
     extras_require={
         'dev': ['check-manifest'],
         'test': ['coverage'],

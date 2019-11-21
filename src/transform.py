@@ -33,7 +33,7 @@ class TransformData:
         body['priority_name'] = issue['fields'].get('priority', {}).get('name', {})
         body['issuetype'] = issue['fields'].get('issuetype', {}).get('name', {})
         body['project'] = issue['fields'].get('project', {}).get('name', {})
-        body['epic_link'] = issue['fields'].get('customfield_10500', None)
+        body['epic_link'] = issue['fields'].get('customfield_10008', None)
         body['story_points'] = issue['fields'].get('customfield_10004', None)
         if issue['fields'].get('customfield_11600', None):
             body['sponsoring_team'] = issue['fields']['customfield_11600'].get('value', None)
@@ -45,8 +45,8 @@ class TransformData:
             body['created'] = int(datetime.timestamp(datetime.strptime(created_date, "%Y-%m-%dT%H:%M:%S.%f%z")))
         if issue['fields'].get('assignee', {}):
             body['assignee_name'] = issue['fields'].get('assignee', {}).get('displayName', {})
-        if issue['fields'].get('customfield_10501', {}):
-            body['epic_name'] = issue['fields'].get('customfield_10501', None)
+        if issue['fields'].get('customfield_10005', {}):
+            body['epic_name'] = issue['fields'].get('customfield_10005', None)
         if issue['fields'].get('customfield_10007', None):
             body.update(self.parse_sprint_data(issue['fields']['customfield_10007']))
         if issue['fields'].get('labels', None):

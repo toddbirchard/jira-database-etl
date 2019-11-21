@@ -7,7 +7,7 @@ class FetchJiraIssues:
 
     def __init__(self, config):
         self.jira_username = config.jira_username
-        self.jira_password = config.jira_password
+        self.jira_api_key = config.jira_api_key
         self.jira_endpoint = config.jira_endpoint
         self.jira_issues_jql = config.jira_issues_jql
         self.jira_issues_fields = config.jira_issues_fields
@@ -38,12 +38,12 @@ class FetchJiraIssues:
         req = requests.get(self.jira_endpoint,
                            headers={"Accept": "application/json"},
                            params=params,
-                           auth=(self.jira_username, self.jira_password))
-        try:
-            total_results = req.json()['total']
+                           auth=(self.jira_username, self.jira_api_key))
+        print(req.json())
+        total_results = req.json().get('total', None)
+        if total_results:
             return total_results
-        except KeyError:
-            print('Could not find any issues!')
+        print('Could not find any issues!')
 
     def __fetch_all_results(self, jql, fields):
         """Retrieve all JIRA issues."""
@@ -61,7 +61,7 @@ class FetchJiraIssues:
             req = requests.get(self.jira_endpoint,
                                headers={"Accept": "application/json"},
                                params=params,
-                               auth=(self.jira_username, self.jira_password))
+                               auth=(self.jira_username, self.jira_api_key))
             response = req.json()
             issues = response['issues']
             issues_so_far = len(issue_arr) + self.results_per_page

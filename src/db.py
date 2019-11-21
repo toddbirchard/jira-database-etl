@@ -35,6 +35,7 @@ class Database:
         """Merge epic metadata from existing SQL table."""
         epics_df = pd.read_sql_table(self.db_epic_table,
                                      self.engine)
+        print(epics_df)
         jira_issues_df = pd.merge(jira_issues_df,
                                   epics_df[['key', 'epic_name']],
                                   how='left',
