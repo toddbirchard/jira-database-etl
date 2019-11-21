@@ -20,14 +20,16 @@ Accompanying tutorial can be found here: https://hackersandslackers.com/building
 
 The following environment variables are needed to run this script:
 
-* `JIRA_USERNAME`: Your JIRA username.
-* `JIRA_API_KEY`: An API key associated with the JIRA user.
+
 * `SQLALCHEMY_DATABASE_URI`: A URI for the database intended to store these tables (ie: _mysql+pymysql://[USER]:[PASSWORD]@d[DATABASE_HOST]:[PORT]/[DATABASE_NAME]_)
 * `SQLALCHEMY_EPIC_TABLE`: Name of database table to store epics.
 * `SQLALCHEMY_JIRA_TABLE`: Name of database table to store JIRA issues.
-* `JIRA_QUERY`: JQL to get JIRA issues.
+* `JIRA_ENDPOINT`: Your JIRA Cloud API endpoint for JQL searching (such as *https://mydomain.atlassian.net/rest/api/3/search*)
+* `JIRA_USERNAME`: Your JIRA username.
+* `JIRA_API_KEY`: An API key associated with the JIRA user.
+* `JIRA_ISSUES_JQL`: JQL to get JIRA issues.
 * `JIRA_ISSUES_FIELDS`: Specific fields to retrieve from the JIRA query.
-* `JIRA_EPICS_QUERY`: JQL to get JIRA epics.
+* `JIRA_EPICS_JQL`: JQL to get JIRA epics.
 * `JIRA_EPICS_FIELDS`: Specific fields to retrieve from the epics query.
 
 Installation is recommended with [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/):
