@@ -45,3 +45,7 @@ $ python3 main.py
 ### Troubleshooting
 
 Make sure your database contains tables named `JiraEpic` and `JiraIssue` prior to running this script (columns/schema don't matter, these will be overridden).
+
+-----
+
+This project and all publically-visible repositories are free of charge. If you've found this project to be helpful, a [small donation](https://www.buymeacoffee.com/hackersslackers) would be greatly appreciated to keep us in business. All proceeds go towards coffee, and all coffee goes towards improving these projects.
