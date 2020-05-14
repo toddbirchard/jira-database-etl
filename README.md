@@ -13,7 +13,7 @@ Extracts issues from a JIRA instance via the JIRA REST API, transforms the data,
 
 To derive epic-based information from tickets, the script creates an `JiraEpic` table as well as a `JiraIssue` table. The `JiraIssue` table is joined with the former table to easily perform analysis on aggregated epic data.
 
-Accompanying tutorial can be found here: https://hackersandslackers.com/building-an-etl-pipeline-from-jira-to-postgresql/
+Accompanying tutorial can be found here: https://hackersandslackers.com/jira-to-sql-etl/
 
 ## Installation
 
