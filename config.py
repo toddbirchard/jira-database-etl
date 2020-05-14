@@ -1,14 +1,19 @@
-from os import environ
+"""Project configuration."""
+from os import environ, path
+from dotenv import load_dotenv
+
+basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, '.env'))
 
 
 class Config:
 
-    # Database
+    # Database config
     db_uri = environ.get('SQLALCHEMY_DATABASE_URI')
     db_epic_table = environ.get('SQLALCHEMY_EPIC_TABLE')
     db_jira_table = environ.get('SQLALCHEMY_JIRA_TABLE')
 
-    # JIRA
+    # JIRA config
     jira_username = environ.get('JIRA_USERNAME')
     jira_api_key = environ.get('JIRA_API_KEY')
     jira_endpoint = environ.get('JIRA_ENDPOINT')

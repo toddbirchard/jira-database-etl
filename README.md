@@ -1,7 +1,7 @@
 # JIRA-to-Database Import
 
-![Python](https://img.shields.io/badge/Python-v3.7-blue.svg?logo=python&longCache=true&logoColor=white&colorB=5e81ac&style=flat-square&colorA=4c566a)
-![Pandas](https://img.shields.io/badge/Pandas-v0.25.2-blue.svg?logo=python&longCache=true&logoColor=white&colorB=5e81ac&style=flat-square&colorA=4c566a)
+![Python](https://img.shields.io/badge/Python-v3.8-blue.svg?logo=python&longCache=true&logoColor=white&colorB=5e81ac&style=flat-square&colorA=4c566a)
+![Pandas](https://img.shields.io/badge/Pandas-v^1.0.0-blue.svg?logo=python&longCache=true&logoColor=white&colorB=5e81ac&style=flat-square&colorA=4c566a)
 ![Requests](https://img.shields.io/badge/Requests-v2.22.0-red.svg?longCache=true&logo=python&longCache=true&style=flat-square&logoColor=white&colorA=4c566a&colorB=5e81ac)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-v1.3.1-red.svg?longCache=true&style=flat-square&logo=scala&logoColor=white&colorA=4c566a&colorB=bf616a)
 ![PyMySQL](https://img.shields.io/badge/PyMySQL-v0.9.3-red.svg?longCache=true&logo=mysql&longCache=true&style=flat-square&logoColor=white&colorA=4c566a&colorB=bf616a)
@@ -15,8 +15,30 @@ To derive epic-based information from tickets, the script creates an `JiraEpic` 
 
 Accompanying tutorial can be found here: https://hackersandslackers.com/building-an-etl-pipeline-from-jira-to-postgresql/
 
+## Installation
 
-## Usage
+**Installation via `requirements.txt`**:
+
+```shell
+$ git clone https://github.com/toddbirchard/jira-database-etl.git
+$ cd jira-database-etl
+$ python3 -m venv myenv
+$ source myenv/bin/activate
+$ pip3 install -r requirements.txt
+$ flask run
+```
+
+**Installation via [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/)**:
+
+```shell
+$ git clone https://github.com/toddbirchard/jira-database-etl.git
+$ cd jira-database-etl
+$ pipenv shell
+$ pipenv update
+$ flask run
+```
+
+## Configuration
 
 The following environment variables are needed to run this script:
 
@@ -32,15 +54,6 @@ The following environment variables are needed to run this script:
 * `JIRA_EPICS_JQL`: JQL to get JIRA epics.
 * `JIRA_EPICS_FIELDS`: Specific fields to retrieve from the epics query.
 
-Installation is recommended with [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/):
-
-```shell
-$ git clone https://github.com/toddbirchard/jira-database-etl.git
-$ cd jira-database-etl
-$ pipenv shell
-$ pipenv update
-$ python3 main.py
-```
 
 ### Troubleshooting
 

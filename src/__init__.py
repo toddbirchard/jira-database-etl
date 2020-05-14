@@ -4,8 +4,8 @@ from .transform import TransformData
 from .db import Database
 
 
-def main():
-    """Application Entry Point."""
+def init_script():
+    """Extract, transform, and load issues from JIRA to an RDBMS."""
     issues, epics = fetch_jira_issues()
     issues, epics = clean_jira_issues(issues, epics)
     upload = upload_issues(issues, epics)
