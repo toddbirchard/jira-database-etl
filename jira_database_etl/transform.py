@@ -14,7 +14,8 @@ class TransformData:
         jira_issues_df = json_normalize(issue_json_list)
         return jira_issues_df
 
-    def dict_to_json_string(self, issue_dict):
+    @staticmethod
+    def dict_to_json_string(issue_dict):
         """Convert dict to JSON to string."""
         issue_json_string = json.dumps(issue_dict)
         issue_json = json.loads(issue_json_string)
@@ -53,7 +54,8 @@ class TransformData:
             body['labels'] = self.parse_label_data(issue['fields']['labels'])
         return body
 
-    def parse_sprint_data(self, sprint):
+    @staticmethod
+    def parse_sprint_data(sprint):
         """Parse raw sprint string."""
         sprint_body = {
             'sprint_status': sprint[0].split('state=')[1].split(',', 1)[0],
@@ -62,7 +64,8 @@ class TransformData:
         }
         return sprint_body
 
-    def parse_label_data(self, labels):
+    @staticmethod
+    def parse_label_data(labels):
         """Parse list of labels."""
         labels = ', '.join(labels)
         return labels

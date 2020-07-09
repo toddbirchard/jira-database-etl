@@ -1,5 +1,6 @@
 import math
 import requests
+from loguru import logger
 
 
 class FetchJiraIssues:
@@ -17,16 +18,20 @@ class FetchJiraIssues:
 
     def get_issues(self):
         """Fetch JIRA issues which are not Epics."""
-        print('Fetching issues from JIRA...')
-        issues = self.__fetch_all_results(self.jira_issues_jql,
-                                          self.jira_issues_fields)
+        logger.info('Fetching issues from JIRA...')
+        issues = self.__fetch_all_results(
+            self.jira_issues_jql,
+            self.jira_issues_fields
+        )
         return issues
 
     def get_epics(self):
         """Fetch JIRA issues which are Epics."""
-        print('Fetching epics from JIRA...')
-        issues = self.__fetch_all_results(self.jira_epics_jql,
-                                          self.jira_epics_fields)
+        logger.info('Fetching epics from JIRA...')
+        issues = self.__fetch_all_results(
+            self.jira_epics_jql,
+            self.jira_epics_fields
+        )
         return issues
 
     def __get_total_number_of_issues(self, jql):
@@ -35,15 +40,16 @@ class FetchJiraIssues:
             "jql": jql,
             "maxResults": 0,
             "startAt": 0}
-        req = requests.get(self.jira_endpoint,
-                           headers={"Accept": "application/json"},
-                           params=params,
-                           auth=(self.jira_username, self.jira_api_key))
-        print(req.json())
+        req = requests.get(
+            self.jira_endpoint,
+            headers={"Accept": "application/json"},
+            params=params,
+            auth=(self.jira_username, self.jira_api_key)
+        )
         total_results = req.json().get('total', None)
         if total_results:
             return total_results
-        print('Could not find any issues!')
+        logger.info('Could not find any issues!')
 
     def __fetch_all_results(self, jql, fields):
         """Retrieve all JIRA issues."""
@@ -58,16 +64,18 @@ class FetchJiraIssues:
                 "startAt": len(issue_arr),
                 "validateQuery": "warn",
                 "fields": fields}
-            req = requests.get(self.jira_endpoint,
-                               headers={"Accept": "application/json"},
-                               params=params,
-                               auth=(self.jira_username, self.jira_api_key))
+            req = requests.get(
+                self.jira_endpoint,
+                headers={"Accept": "application/json"},
+                params=params,
+                auth=(self.jira_username, self.jira_api_key)
+            )
             response = req.json()
             issues = response['issues']
             issues_so_far = len(issue_arr) + self.results_per_page
             if issues_so_far > num_issues:
                 issues_so_far = num_issues
-            print(f'Fetched {issues_so_far} out of {num_issues} total issues.')
+            logger.info(f'Fetched {issues_so_far} out of {num_issues} total issues.')
             issue_arr.extend(issues)
             # Check if additional pages of results exist.
         count = math.ceil(num_issues/self.results_per_page)

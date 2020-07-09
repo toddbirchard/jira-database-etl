@@ -1,4 +1,5 @@
 from config import Config
+from loguru import logger
 from .jirafetch import FetchJiraIssues
 from .transform import TransformData
 from .db import Database
@@ -9,7 +10,7 @@ def init_script():
     issues, epics = fetch_jira_issues()
     issues, epics = clean_jira_issues(issues, epics)
     upload = upload_issues(issues, epics)
-    print(upload)
+    logger.info(upload)
 
 
 def fetch_jira_issues():
@@ -22,7 +23,7 @@ def fetch_jira_issues():
 
 def clean_jira_issues(issues, epics):
     """Clean data and create pandas DataFrame."""
-    print('Transforming JIRA issues to tabular data...')
+    logger.info('Transforming JIRA issues to tabular data...')
     transform_data = TransformData()
     issues_df = transform_data.construct_dataframe(issues)
     epics_df = transform_data.construct_dataframe(epics)
@@ -31,7 +32,7 @@ def clean_jira_issues(issues, epics):
 
 def upload_issues(issues, epics):
     """Upload issues table to SQL database."""
-    print("Preparing database upload...")
+    logger.info("Preparing database upload...")
     db = Database(Config)
     epics_upload = db.upload_epics(epics)
     issues_upload = db.upload_issues(issues)
