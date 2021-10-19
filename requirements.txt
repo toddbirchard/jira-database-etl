@@ -5,7 +5,7 @@ loguru==0.5.1
 numpy==1.19.1
 pandas==1.1.1
 PyMySQL==0.10.0
-python-dateutil==2.8.1
+python-dateutil==2.8.2
 python-dotenv==0.14.0
 pytz==2020.1
 requests==2.24.0
